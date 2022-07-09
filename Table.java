@@ -9,15 +9,17 @@ public class Table {
 		// qui si dovrebbero implementare gli effetti della mossa
 		// ma non ci interessa
 		
-		while( turno.turno %3 != playerId ) {
-			wait();
-		}
-		isFinita=(Math.random()<0.2);
-		if(isFinita){
-			System.out.println("il giocatore "+playerId+" ha vinto!");
-		}
-		turno.incrementaTurno();
-		notifyAll();
+		while(isFinita)	{
+			while( turno.turno %3 != playerId && !isFinita ) {
+				wait();
+			}
+			isFinita=(Math.random()<0.2);
+			if(isFinita){
+				System.out.println("il giocatore "+playerId+" ha vinto!");
+			}
+			turno.incrementaTurno();
+			notifyAll();
+		}	
 	}
 	
 	boolean finita(){

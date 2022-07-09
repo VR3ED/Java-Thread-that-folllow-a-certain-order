@@ -13,7 +13,6 @@ public class myMain {
 		Thread player3 = new Player(3, gameTable, /* b, */ t);
 		
 		
-		
 		player1.join();
 		player2.join();
 		player3.join();		
